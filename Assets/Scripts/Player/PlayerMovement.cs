@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 12f; // Velocidad de movimiento del personaje
 
-    private float gravity = -9.81f; // Gravedad (ref. Tierra)
+    private float gravity = -9.81f; // Gravedad (ref. Tierra) // Hacemos la variable privada para que no pueda ser modificada en el editor y evitar posibles problemas
 
 
     public Transform groundCheck;
@@ -44,9 +44,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Si recibimos la tecla espacio y estamos tocando el suelo (si no comprobáramos el suelo podríamos encadenar saltos de forma infinita)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); // Fórmula para el salto en el eje Y
         }
 
 

@@ -1,0 +1,23 @@
+# Written by MakeHuman UNKNOWN:UNKNOWN
+version v1.2.0
+name Enemy1
+camera 355.0 356.5 -0.24299770518687683 0.1652910069336844 -0.19860943468778341 1.225
+modifier breast/BreastSize 0.500000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails/Age 0.500000
+modifier macrodetails/African 0.126500
+modifier macrodetails/Asian 0.126500
+modifier macrodetails/Caucasian 0.747000
+modifier macrodetails-universal/Muscle 0.805000
+modifier macrodetails-universal/Weight 0.655000
+modifier macrodetails-height/Height 0.500000
+modifier macrodetails-proportions/BodyProportions 0.609000
+eyes HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6
+clothes male_casualsuit01 79ced554-1d8a-4c14-a6a8-e1de90b09c32
+clothes shoes03 ad622a26-da1e-4e3c-9f8e-454edf10d504
+clothes fedora 566dbd52-71d1-4d76-a799-0474a5a384db
+clothesHideFaces True
+skinMaterial skins/old_caucasian_male/old_caucasian_male.mhmat
+material HighPolyEyes 2c12f43b-1303-432c-b7ce-d78346baf2e6 eyes/materials/brown.mhmat
+subdivide False
