@@ -25,6 +25,13 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3;
 
 
+    public bool isSprinting;
+
+    public float sprintingSpeedMultiplier = 1.5f;
+
+    private float sprintSpeed = 1;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -43,18 +50,41 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
 
+        JumpCheck();
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Si recibimos la tecla espacio y estamos tocando el suelo (si no comprobáramos el suelo podríamos encadenar saltos de forma infinita)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); // Fórmula para el salto en el eje Y
-        }
+        RunCheck();
 
 
-        characterController.Move(move * speed * Time.deltaTime); // Multiplicamos por Time.deltaTime para que sea independiente de los FPS
+        characterController.Move(move * speed * Time.deltaTime * sprintSpeed); // Multiplicamos por Time.deltaTime para que sea independiente de los FPS
 
         velocity.y += gravity * Time.deltaTime;
 
         characterController.Move(velocity * Time.deltaTime);
+    }
+
+    public void JumpCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) // Si recibimos la tecla espacio y estamos tocando el suelo (si no comprobáramos el suelo podríamos encadenar saltos de forma infinita)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity); // Fórmula para el salto en el eje Y
+        }
+    }
+
+    public void RunCheck()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isSprinting = !isSprinting;
+        }
+
+        if (isSprinting == true)
+        {
+            sprintSpeed = sprintingSpeedMultiplier;
+        }
+        else
+        {
+            sprintSpeed = 1;
+        }
 
     }
 }

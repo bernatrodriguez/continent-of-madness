@@ -67,4 +67,9 @@ public class AI : MonoBehaviour
     {
         navMeshAgent.destination = player.transform.position; // Establecemos el destino del enemigo en la posición del jugador
     }
+
+    public void GrenadeImpact()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraLook : MonoBehaviour
 {
 
-    public float mouseSensitivity = 80f;
+    public float mouseSensitivity = 160f;
 
     public Transform playerBody;
 
